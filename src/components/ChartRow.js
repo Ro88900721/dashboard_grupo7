@@ -10,9 +10,10 @@ class ChartRow extends Component {
           return (
                   <tr>
                       <td>{this.props.item.id}</td>
-                      <td>{this.props.item.name}</td>
-                      <td>{this.props.item.description}</td>
-                      <td>{this.props.item.price}</td>
+                      <td>{this.props.item.titulo}</td>
+                      <td>{this.props.item.editorial}</td>
+                      <td>${this.props.item.precio}</td>
+                      <td>{this.props.item.stock}</td>
                   </tr>
               )
       }

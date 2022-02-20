@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Genre(props){
+class Genre extends Component {
+    constructor(props) {
+        super(props); //ejecuta el constructor de component que es una clase de react
+        this.state = {
+        };
+      }
+      render(){
     return(
-        <React.Fragment>
-            <div className="col-lg-6 mb-4">
-                <div className="card text-white bg-dark  shadow">
-                    <div className="card-body">
-                        {props.category.nombre} - {props.category.total}
-                    </div>
-                </div>
-            </div>
-        </React.Fragment>
+        
+                    <tr>
+                      <td>{this.props.item.name}</td>
+                      
+                  </tr>
+                   
     )
+}
 }
 export default Genre;

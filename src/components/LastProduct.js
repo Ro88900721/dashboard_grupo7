@@ -16,33 +16,35 @@ class LastProduct extends Component {
     }
 
     componentDidMount() {
-        this.apiCall("http://localhost:3000/api/products/lastProduct", this.lastProduct);
+        this.apiCall("http://localhost:3030/api/products/lastProduct", this.lastProduct);
     }
 
     lastProduct = (data) => {
         this.setState({
-            name: data.data[0].name,
-            description: data.data[0].description,
-            image: data.data[0].image,
-            price: data.data[0].price,
+            id: data.data[0].libro_id,
+            name: data.data[0].libro_titulo,
+            description: data.data[0].libro_autor,
+            image: data.data[0].libro_imagen,
+            price: data.data[0].libro_precio,
         })
     }
 
     render() {
-        let url = "/img/fotosMulter/" + this.state.image
+        let url = "http://localhost:3030/images/portadas/" + this.state.image;
+        let urldatail = "http://localhost:3030/products/" + this.state.id;
         return (
           <div className="col-lg-6 mb-4">
               <div className="card shadow mb-4">
                   <div className="card-header py-3">
-                      <h5 className="m-0 font-weight-bold text-gray-800">Ultimo Producto Listado - {this.state.name} </h5>
+                      <h5 className="m-0 font-weight-bold text-gray-800">Ultimo Producto Subido: {this.state.name} </h5>
                   </div>
                   <div className="card-body">
                       <div className="text-center">
-                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 30 +'rem'}} src={url} alt=" Ultimo producto "/>
+                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 30 +'rem'}} src={url} alt="Ultimo producto"/>
                       </div>
-                      <p>{this.state.description}</p>
-                      <p>{this.state.price}</p>
-                      <a className="btn btn-danger" target="_blank" rel="nofollow" href="http://localhost:3000/products/detail/58">View product detail</a>
+                      <span>Nombre del libro</span><p>{this.state.name}</p>
+                      <span>Precio </span><p>${this.state.price}</p>
+                      <a className="btn btn-danger" target="_blank" rel="nofollow" href={urldatail}>Ver detalles del Libro</a>
                   </div>
               </div>
           </div>

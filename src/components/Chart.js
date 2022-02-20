@@ -17,7 +17,7 @@ class Chart extends Component {
       }
     
       componentDidMount() {
-        this.apiCall("http://localhost:3000/api/products", this.products);
+        this.apiCall("http://localhost:3030/api/products", this.products);
       }
 
       products = (data) => {
@@ -39,10 +39,12 @@ class Chart extends Component {
                                       <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                           <thead>
                                               <tr>
+                                                  
                                                   <th>Id</th>
                                                   <th>Nombre</th>
-                                                  <th>Descripción</th>
+                                                  <th>Editorial</th>
                                                   <th>Precio</th>
+                                                  <th>Stock</th>
                                               </tr>
                                           </thead>
                                           <tbody>

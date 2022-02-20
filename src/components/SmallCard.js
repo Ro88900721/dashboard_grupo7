@@ -18,9 +18,9 @@ class SmallCard extends Component {
   }
 
   componentDidMount() {
-    this.apiCall("http://localhost:3000/api/products", this.totalProductos);
-    this.apiCall("http://localhost:3000/api/users", this.totalUsuarios);
-    this.apiCall("http://localhost:3000/api/products", this.totalCategorias);
+    this.apiCall("http://localhost:3030/api/products", this.totalProductos);
+    this.apiCall("http://localhost:3030/api/users", this.totalUsuarios);
+    this.apiCall("http://localhost:3030/api/products/generos", this.totalGeneros);
   }
 
   totalProductos = (data) => {
@@ -35,9 +35,9 @@ class SmallCard extends Component {
     });
   };
 
-  totalCategorias = (data) => {
+  totalGeneros = (data) => {
     this.setState({
-      categories: data.meta.categories
+      generos: data.meta.total
     });
   };
 
@@ -49,6 +49,9 @@ class SmallCard extends Component {
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
+                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                    Libros
                   </div>
@@ -89,9 +92,9 @@ class SmallCard extends Component {
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                    Categorías
+                    Géneros
                   </div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">{this.state.categories}</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{this.state.generos}</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-user fa-2x text-gray-300"></i>
